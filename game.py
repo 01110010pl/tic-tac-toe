@@ -31,12 +31,11 @@ class TicTacToe:
     def setPlace(self, place):
         """Method gets from players, a place where they want to set; if 
         the place is avaiable, method return True; against it's return False"""
-        if self._board[place] == place:
-            self._board[place] = self._currentTurn
-            return True
-        else:
-            return False
-    
+        self._board[place] = self._currentTurn
+         
+    def getFreePlaces(self):
+        return [i for i in self._board if type(i) == int]
+
     def checkWin(self):
         """Method returns True, if some user win the game; return False if not."""
         first = self._board[0] == self._board[1] == self._board[2]
