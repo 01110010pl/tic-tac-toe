@@ -6,16 +6,19 @@ def cleanScreen():
     elif sys.platform == 'windows':
         os.system('cls')
 
-def ioMenu(content, answers):
+def ioMenu(content, answers = []):
     cleanScreen()
     while True:
         for i in content[:len(content) - 1]:
             print(i)
         answer = input(content[len(content) - 1])
         try:
+            if answers == []:
+                break
             answer = int(answer)
             if answer in answers:
                 break
         except:
             cleanScreen()
+    cleanScreen()
     return answer

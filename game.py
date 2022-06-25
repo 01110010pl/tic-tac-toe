@@ -7,7 +7,7 @@ class TicTacToe:
         """Init of Tic Tac Toe game's object."""
         self._board = [i for i in range(9)]
         self._avaiablePlayers = ["X", "Y"]
-        self._currentTurn = 0
+        self._currentTurn = random.choice(self._avaiablePlayers)
     
     @property
     def board(self):
@@ -16,10 +16,6 @@ class TicTacToe:
     @property
     def currentTurn(self):
         return self._currentTurn
-    
-    def choicePlayerTurn(self):
-        """This method sets the first turn of the game."""
-        self._currentTurn = random.choice(self._avaiablePlayers)
     
     def changeTurn(self):
         """Change the current turn of players."""
@@ -34,6 +30,7 @@ class TicTacToe:
         self._board[place] = self._currentTurn
          
     def getFreePlaces(self):
+        """Returns a list of free places on the board."""
         return [i for i in self._board if type(i) == int]
 
     def checkWin(self):
